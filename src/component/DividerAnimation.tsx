@@ -1,15 +1,14 @@
 import { Box } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useAnimation, useViewportScroll } from "framer-motion";
+import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
-const DividerAnimation = () => {
-	const parentRef = useRef(null);
+const DividerAnimation = ({ direction }: any) => {
 	const { ref, inView } = useInView({ threshold: 0.5 });
-	const parentHeight = parentRef.current ? parentRef.current.clientHeight : 0;
 	const [isHovered, setIsHovered] = useState(false);
-	const [scrollPosition, setScrollPosition] = useState(0);
-	const [scrollDirection, setScrollDirection] = useState("down");
+	const [lastY, setLastY] = useState(0);
+	const { scrollY } = useViewportScroll();
+	const controls = useAnimation();
 
 	const handleHoverStart = () => {
 		setIsHovered(true);
@@ -19,55 +18,45 @@ const DividerAnimation = () => {
 		setIsHovered(false);
 	};
 
-	const handleScroll = () => {
-		const currentPosition = window.scrollY;
-		setScrollDirection(currentPosition > scrollPosition ? "down" : "up");
-		setScrollPosition(currentPosition);
-	};
+	useEffect(() => {
+		const handleScroll = () => {
+			if (inView) {
+				const currentY = scrollY.get();
+				const isScrollingUp = currentY < lastY;
 
-	const getLinePercentage = () => {
-		if (scrollDirection === "down") {
-			return scrollPosition / parentHeight > 1
-				? 1
-				: scrollPosition / parentHeight;
-		} else {
-			return scrollPosition / parentHeight < 0
-				? 0
-				: 1 - scrollPosition / parentHeight;
-		}
-	};
+				controls.start({
+					scaleX: isHovered || (inView && !isScrollingUp) ? 1 : 0,
+				});
+
+				setLastY(currentY);
+			}
+		};
+
+		const unsubscribeScrollY = scrollY.onChange(handleScroll);
+		return () => {
+			unsubscribeScrollY();
+		};
+	}, [scrollY, inView, isHovered, controls, lastY]);
 
 	return (
-		<Box ref={parentRef} position='relative' h='2px'>
-			<Box
-				ref={ref}
-				position='absolute'
-				left={0}
-				top='50%'
-				w='100%'
-				h='2px'
-				bg='gray'
-				onMouseEnter={handleHoverStart}
-				onMouseLeave={handleHoverEnd}
-			>
-				<motion.div
-					style={{
-						width: `${getLinePercentage() * 100}%`,
-						height: "100%",
-						backgroundColor: isHovered || inView ? "black" : "gray",
-					}}
-					animate={{
-						width: `${
-							isHovered || inView
-								? "100%"
-								: scrollDirection === "down"
-								? getLinePercentage() * 100 + "%"
-								: (1 - getLinePercentage()) * 100 + "%"
-						}`,
-					}}
-					transition={{ duration: 0.9 }}
-				/>
-			</Box>
+		<Box
+			ref={ref}
+			position='relative'
+			h='2px'
+			onMouseEnter={handleHoverStart}
+			onMouseLeave={handleHoverEnd}
+		>
+			<motion.div
+				animate={controls}
+				style={{
+					position: "absolute",
+					width: "100%",
+					height: "100%",
+					backgroundColor: isHovered || inView ? "black" : "gray",
+					originX: direction === "rightToLeft" ? "100%" : "0%",
+				}}
+				transition={{ duration: 0.9 }}
+			/>
 		</Box>
 	);
 };

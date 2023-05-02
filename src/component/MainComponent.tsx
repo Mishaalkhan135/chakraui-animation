@@ -13,6 +13,9 @@ import { useState, useEffect } from "react";
 
 const MainComponent = () => {
 	const [scrollPercent, setScrollPercent] = useState(0);
+	const direction = (index: any) => {
+		return index % 2 === 0 ? "leftToRight" : "rightToLeft";
+	};
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -40,7 +43,7 @@ const MainComponent = () => {
 			<Stack>
 				<HStack>
 					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
-						<DividerAnimation />
+						<DividerAnimation direction='leftToRight' />
 						<Heading fontSize={"5xl"}>Q1 2023</Heading>
 						<UnorderedList>
 							<ListItem fontSize={"2xl"} ml={6}>
@@ -67,7 +70,7 @@ const MainComponent = () => {
 					<Box w={"calc(50% - 1px)"} h={"500px"}></Box>
 					<Box w={"2px"} h={"500px"} bg={"black"}></Box>
 					<Box w={"calc(50% - 1px)"} h={"500px"} p={16}>
-						<DividerAnimation />
+						<DividerAnimation direction='rightToLeft' />
 						<Heading fontSize={"5xl"}>Q2 2023</Heading>
 						<UnorderedList>
 							<ListItem fontSize={"2xl"} ml={6}>
@@ -99,7 +102,7 @@ const MainComponent = () => {
 				</HStack>
 				<HStack>
 					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
-						<DividerAnimation />
+						<DividerAnimation direction='leftToRight' />
 						<Heading fontSize={"5xl"}> Q3 2023</Heading>
 						<UnorderedList>
 							<ListItem fontSize={"2xl"} ml={6}>
@@ -126,7 +129,7 @@ const MainComponent = () => {
 					<Box w={"calc(50% - 1px)"} h={"300px"}></Box>
 					<Box w={"2px"} h={"300px"} bg={"black"}></Box>
 					<Box w={"calc(50% - 1px)"} h={"300px"} p={16}>
-						<DividerAnimation />
+						<DividerAnimation direction='rightToLeft' />
 						<Heading fontSize={"5xl"}>Q4 2023</Heading>
 						<UnorderedList>
 							<ListItem fontSize={"2xl"} ml={6}>
@@ -146,7 +149,7 @@ const MainComponent = () => {
 				</HStack>
 				<HStack>
 					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
-						<DividerAnimation />
+						<DividerAnimation direction='leftToRight' />
 						<Heading fontSize={"5xl"}>Q1 2024</Heading>
 						<UnorderedList>
 							<ListItem fontSize={"2xl"} ml={6}>
