@@ -9,6 +9,7 @@ const DividerAnimation = ({ direction }: any) => {
 	const [lastY, setLastY] = useState(0);
 	const { scrollY } = useViewportScroll();
 	const controls = useAnimation();
+	const [showCircle, setShowCircle] = useState(false);
 
 	const handleHoverStart = () => {
 		setIsHovered(true);
@@ -23,6 +24,12 @@ const DividerAnimation = ({ direction }: any) => {
 			if (inView) {
 				const currentY = scrollY.get();
 				const isScrollingUp = currentY < lastY;
+
+				if (isHovered || (inView && !isScrollingUp)) {
+					setShowCircle(true);
+				} else if (!isHovered && !inView) {
+					setShowCircle(false);
+				}
 
 				controls.start({
 					scaleX: isHovered || (inView && !isScrollingUp) ? 1 : 0,
@@ -57,6 +64,20 @@ const DividerAnimation = ({ direction }: any) => {
 				}}
 				transition={{ duration: 0.9 }}
 			/>
+			{showCircle && (
+				<Box
+					position='absolute'
+					top='50%'
+					right={direction === "rightToLeft" ? "0%" : "auto"}
+					left={direction === "leftToRight" ? "-2%" : "auto"}
+					transform='translate(50%, -50%)'
+					borderRadius='50%'
+					w='16px'
+					h='16px'
+					backgroundColor='blue'
+					boxShadow='0 0 20px 5px black'
+				/>
+			)}
 		</Box>
 	);
 };

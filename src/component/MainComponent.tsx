@@ -8,8 +8,8 @@ import {
 	ListItem,
 } from "@chakra-ui/react";
 import DividerAnimation from "./DividerAnimation";
-import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
+import VerticalAnimation from "./VerticalDivider";
 
 const MainComponent = () => {
 	const [scrollPercent, setScrollPercent] = useState(0);
@@ -63,12 +63,16 @@ const MainComponent = () => {
 							</ListItem>
 						</UnorderedList>
 					</Box>
-					<Box w={"2px"} h={"360px"} bg={"black"}></Box>
+					<VerticalAnimation direction='up' height='360px' />
+
+					{/* <Box w={"2px"} h={"360px"} bg={"black"}></Box> */}
 					<Box w={"calc(50% - 1px)"} h={"360px"}></Box>
 				</HStack>
 				<HStack>
 					<Box w={"calc(50% - 1px)"} h={"500px"}></Box>
-					<Box w={"2px"} h={"500px"} bg={"black"}></Box>
+					{/* <Box w={"2px"} h={"500px"} bg={"black"}></Box> */}
+					<VerticalAnimation direction='up' height='500px' />
+
 					<Box w={"calc(50% - 1px)"} h={"500px"} p={16}>
 						<DividerAnimation direction='rightToLeft' />
 						<Heading fontSize={"5xl"}>Q2 2023</Heading>
@@ -122,12 +126,16 @@ const MainComponent = () => {
 							</ListItem>
 						</UnorderedList>
 					</Box>
-					<Box w={"2px"} h={"360px"} bg={"black"}></Box>
+					<VerticalAnimation direction='up' height='360px' />
+
+					{/* <Box w={"2px"} h={"360px"} bg={"black"}></Box> */}
 					<Box w={"calc(50% - 1px)"} h={"360px"}></Box>
 				</HStack>
 				<HStack>
 					<Box w={"calc(50% - 1px)"} h={"300px"}></Box>
-					<Box w={"2px"} h={"300px"} bg={"black"}></Box>
+					<VerticalAnimation direction='up' height='360px' />
+
+					{/* <Box w={"2px"} h={"300px"} bg={"black"}></Box> */}
 					<Box w={"calc(50% - 1px)"} h={"300px"} p={16}>
 						<DividerAnimation direction='rightToLeft' />
 						<Heading fontSize={"5xl"}>Q4 2023</Heading>
