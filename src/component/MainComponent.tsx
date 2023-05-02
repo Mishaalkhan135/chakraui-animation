@@ -12,6 +12,21 @@ import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 
 const MainComponent = () => {
+	const [scrollPercent, setScrollPercent] = useState(0);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollPosition = window.pageYOffset;
+			const height =
+				document.documentElement.scrollHeight -
+				document.documentElement.clientHeight;
+			const percentScrolled = scrollPosition / height;
+			setScrollPercent(percentScrolled);
+		};
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	return (
 		<Container maxW={"8xl"}>
 			<Heading
@@ -24,7 +39,7 @@ const MainComponent = () => {
 			</Heading>
 			<Stack>
 				<HStack>
-					<Box w={"calc(50% - 1px)"} h={"360px"} bg={"red"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
 						<DividerAnimation />
 						<Heading fontSize={"5xl"}>Q1 2023</Heading>
 						<UnorderedList>
@@ -46,12 +61,12 @@ const MainComponent = () => {
 						</UnorderedList>
 					</Box>
 					<Box w={"2px"} h={"360px"} bg={"black"}></Box>
-					<Box w={"calc(50% - 1px)"} h={"360px"} bg={"red"}></Box>
+					<Box w={"calc(50% - 1px)"} h={"360px"}></Box>
 				</HStack>
 				<HStack>
-					<Box w={"calc(50% - 1px)"} h={"500px"} bg={"green"}></Box>
+					<Box w={"calc(50% - 1px)"} h={"500px"}></Box>
 					<Box w={"2px"} h={"500px"} bg={"black"}></Box>
-					<Box w={"calc(50% - 1px)"} h={"500px"} bg={"green"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"500px"} p={16}>
 						<DividerAnimation />
 						<Heading fontSize={"5xl"}>Q2 2023</Heading>
 						<UnorderedList>
@@ -83,7 +98,7 @@ const MainComponent = () => {
 					</Box>
 				</HStack>
 				<HStack>
-					<Box w={"calc(50% - 1px)"} h={"360px"} bg={"blue"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
 						<DividerAnimation />
 						<Heading fontSize={"5xl"}> Q3 2023</Heading>
 						<UnorderedList>
@@ -105,12 +120,12 @@ const MainComponent = () => {
 						</UnorderedList>
 					</Box>
 					<Box w={"2px"} h={"360px"} bg={"black"}></Box>
-					<Box w={"calc(50% - 1px)"} h={"360px"} bg={"blue"}></Box>
+					<Box w={"calc(50% - 1px)"} h={"360px"}></Box>
 				</HStack>
 				<HStack>
-					<Box w={"calc(50% - 1px)"} h={"300px"} bg={"orange"}></Box>
+					<Box w={"calc(50% - 1px)"} h={"300px"}></Box>
 					<Box w={"2px"} h={"300px"} bg={"black"}></Box>
-					<Box w={"calc(50% - 1px)"} h={"300px"} bg={"orange"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"300px"} p={16}>
 						<DividerAnimation />
 						<Heading fontSize={"5xl"}>Q4 2023</Heading>
 						<UnorderedList>
@@ -130,7 +145,7 @@ const MainComponent = () => {
 					</Box>
 				</HStack>
 				<HStack>
-					<Box w={"calc(50% - 1px)"} h={"360px"} bg={"yellow"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
 						<DividerAnimation />
 						<Heading fontSize={"5xl"}>Q1 2024</Heading>
 						<UnorderedList>
@@ -154,7 +169,7 @@ const MainComponent = () => {
 							</ListItem>
 						</UnorderedList>
 					</Box>
-					<Box w={"calc(50% - 1px)"} h={"360px"} bg={"yellow"}></Box>
+					<Box w={"calc(50% - 1px)"} h={"360px"}></Box>
 				</HStack>
 			</Stack>
 		</Container>
