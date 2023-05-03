@@ -37,12 +37,19 @@ const MainComponent = () => {
 				fontSize={"7xl"}
 				fontWeight={500}
 				fontFamily={"sans-serif"}
+				py={16}
 			>
 				Roadmap
 			</Heading>
 			<Stack>
 				<HStack>
-					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
+					<Box
+						w={"calc(50% - 1px)"}
+						h={"360px"}
+						p={16}
+						pt={-8}
+						// bgGradient='linear(to-r, #f9f9ff, #e5eeff)'
+					>
 						<DividerAnimation direction='leftToRight' />
 						<Heading fontSize={"5xl"}>Q1 2023</Heading>
 						<UnorderedList>
@@ -64,16 +71,13 @@ const MainComponent = () => {
 						</UnorderedList>
 					</Box>
 					<VerticalAnimation direction='up' height='360px' />
-
-					{/* <Box w={"2px"} h={"360px"} bg={"black"}></Box> */}
 					<Box w={"calc(50% - 1px)"} h={"360px"}></Box>
 				</HStack>
 				<HStack>
 					<Box w={"calc(50% - 1px)"} h={"500px"}></Box>
-					{/* <Box w={"2px"} h={"500px"} bg={"black"}></Box> */}
 					<VerticalAnimation direction='up' height='500px' />
 
-					<Box w={"calc(50% - 1px)"} h={"500px"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"500px"} p={16} pt={-8}>
 						<DividerAnimation direction='rightToLeft' />
 						<Heading fontSize={"5xl"}>Q2 2023</Heading>
 						<UnorderedList>
@@ -105,7 +109,7 @@ const MainComponent = () => {
 					</Box>
 				</HStack>
 				<HStack>
-					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"360px"} p={16} pt={-8}>
 						<DividerAnimation direction='leftToRight' />
 						<Heading fontSize={"5xl"}> Q3 2023</Heading>
 						<UnorderedList>
@@ -128,15 +132,13 @@ const MainComponent = () => {
 					</Box>
 					<VerticalAnimation direction='up' height='360px' />
 
-					{/* <Box w={"2px"} h={"360px"} bg={"black"}></Box> */}
 					<Box w={"calc(50% - 1px)"} h={"360px"}></Box>
 				</HStack>
 				<HStack>
 					<Box w={"calc(50% - 1px)"} h={"300px"}></Box>
 					<VerticalAnimation direction='up' height='360px' />
 
-					{/* <Box w={"2px"} h={"300px"} bg={"black"}></Box> */}
-					<Box w={"calc(50% - 1px)"} h={"300px"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"300px"} p={16} pt={-8}>
 						<DividerAnimation direction='rightToLeft' />
 						<Heading fontSize={"5xl"}>Q4 2023</Heading>
 						<UnorderedList>
@@ -155,8 +157,9 @@ const MainComponent = () => {
 						</UnorderedList>
 					</Box>
 				</HStack>
+
 				<HStack>
-					<Box w={"calc(50% - 1px)"} h={"360px"} p={16}>
+					<Box w={"calc(50% - 1px)"} h={"360px"} p={16} pt={-8}>
 						<DividerAnimation direction='leftToRight' />
 						<Heading fontSize={"5xl"}>Q1 2024</Heading>
 						<UnorderedList>

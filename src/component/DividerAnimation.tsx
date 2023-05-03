@@ -33,6 +33,7 @@ const DividerAnimation = ({ direction }: any) => {
 
 				controls.start({
 					scaleX: isHovered || (inView && !isScrollingUp) ? 1 : 0,
+					scaleY: isHovered || (inView && !isScrollingUp) ? 1 : 0.5, // Modify scaleY to control line thickness
 				});
 
 				setLastY(currentY);
@@ -52,6 +53,7 @@ const DividerAnimation = ({ direction }: any) => {
 			h='2px'
 			onMouseEnter={handleHoverStart}
 			onMouseLeave={handleHoverEnd}
+			mb={6}
 		>
 			<motion.div
 				animate={controls}
@@ -60,16 +62,17 @@ const DividerAnimation = ({ direction }: any) => {
 					width: "100%",
 					height: "100%",
 					backgroundColor: isHovered || inView ? "black" : "gray",
-					originX: direction === "rightToLeft" ? "100%" : "0%",
+					originX: direction === "rightToLeft" ? "0%" : "100%",
 				}}
 				transition={{ duration: 0.9 }}
 			/>
+
 			{showCircle && (
 				<Box
 					position='absolute'
 					top='50%'
-					right={direction === "rightToLeft" ? "0%" : "auto"}
-					left={direction === "leftToRight" ? "-2%" : "auto"}
+					right={direction === "rightToLeft" ? "auto" : "0%"}
+					left={direction === "leftToRight" ? "-2%" : "100%"}
 					transform='translate(50%, -50%)'
 					borderRadius='50%'
 					w='16px'
