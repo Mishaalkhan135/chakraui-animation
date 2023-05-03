@@ -85,19 +85,6 @@ const VerticalAnimation = ({ direction, height }: any) => {
 					boxShadow='0 0 20px 5px black'
 				/>
 			)}
-			{showEndCircle && (
-				<Box
-					position='absolute'
-					bottom={endCircleY}
-					left='50%'
-					transform='translate(-50%, 50%)'
-					borderRadius='50%'
-					w='16px'
-					h='16px'
-					backgroundColor='black'
-					boxShadow='0 0 20px 5px black'
-				/>
-			)}
 		</Box>
 	);
 };

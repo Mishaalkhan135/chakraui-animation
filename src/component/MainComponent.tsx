@@ -138,7 +138,7 @@ const MainComponent = () => {
 					<Box w={"calc(50% - 1px)"} h={"300px"}></Box>
 					<VerticalAnimation direction='up' height='360px' />
 
-					<Box w={"calc(50% - 1px)"} h={"300px"} p={16} pt={-8}>
+					<Box w={"calc(50% - 1px)"} h={"360px"} p={16} pt={-8}>
 						<DividerAnimation direction='rightToLeft' />
 						<Heading fontSize={"5xl"}>Q4 2023</Heading>
 						<UnorderedList>
