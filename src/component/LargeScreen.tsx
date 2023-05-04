@@ -18,7 +18,7 @@ const LargeScreen = () => {
 						<DividerAnimation
 							direction='leftToRight'
 							circleColor='orange'
-							circleShadow='0 0 20px 5px orange'
+							circleShadow='0 0 30px 5px orange'
 						/>
 						<Heading fontSize={{ md: "3xl", lg: "5xl" }}>
 							Q1 2023
@@ -56,7 +56,7 @@ const LargeScreen = () => {
 						<DividerAnimation
 							direction='rightToLeft'
 							circleColor='purple'
-							circleShadow='0 0 20px 5px purple'
+							circleShadow='0 0 30px 5px purple'
 						/>
 						<Heading fontSize={{ md: "3xl", lg: "5xl" }}>
 							Q2 2023
@@ -94,10 +94,9 @@ const LargeScreen = () => {
 						<DividerAnimation
 							direction='leftToRight'
 							circleColor='blue'
-							circleShadow='0 0 20px 5px blue'
+							circleShadow='0 0 30px 5px blue'
 						/>
 						<Heading fontSize={{ md: "3xl", lg: "5xl" }}>
-							{" "}
 							Q3 2023
 						</Heading>
 						<UnorderedList>
@@ -138,7 +137,7 @@ const LargeScreen = () => {
 						<DividerAnimation
 							direction='rightToLeft'
 							circleColor='pink'
-							circleShadow='0 0 20px 5px pink'
+							circleShadow='0 0 30px 5px pink'
 						/>
 						<Heading fontSize={{ md: "3xl", lg: "5xl" }}>
 							Q4 2023
@@ -162,11 +161,13 @@ const LargeScreen = () => {
 
 				<HStack>
 					<Box w={"calc(50% - 1px)"} h={"360px"} p={16} pt={-8}>
-						<DividerAnimation
-							direction='leftToRight'
-							circleColor='green'
-							circleShadow='0 0 20px 5px green'
-						/>
+						<Box mt={-2}>
+							<DividerAnimation
+								direction='leftToRight'
+								circleColor='green'
+								circleShadow='0 0 30px 5px green'
+							/>
+						</Box>
 						<Heading fontSize={{ md: "3xl", lg: "5xl" }}>
 							Q1 2024
 						</Heading>
