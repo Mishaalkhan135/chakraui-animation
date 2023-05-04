@@ -1,15 +1,6 @@
-import {
-	Box,
-	HStack,
-	Heading,
-	Container,
-	Stack,
-	UnorderedList,
-	ListItem,
-} from "@chakra-ui/react";
+import { Box, Heading, Container } from "@chakra-ui/react";
 import DividerAnimation from "./DividerAnimation";
 import { useState, useEffect } from "react";
-import VerticalAnimation from "./VerticalDivider";
 import LargeScreen from "./LargeScreen";
 import SmallScreen from "./SmallScreen";
 

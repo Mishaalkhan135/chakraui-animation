@@ -67,11 +67,11 @@ const DividerAnimation = ({ direction, circleColor, circleShadow }: any) => {
 					left={direction === "leftToRight" ? leftValue : "100%"}
 					transform='translate(50%, -50%)'
 					borderRadius='50%'
-					w='20px'
-					h='20px'
+					w='28px'
+					h='28px'
 					backgroundColor={circleColor || "blue"}
 					boxShadow={circleShadow || "0 0 20px 5px black"}
-					ml={-2}
+					ml={-4}
 				>
 					<Box
 						position='absolute'
