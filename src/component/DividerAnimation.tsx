@@ -1,9 +1,14 @@
-import { Box } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import { motion, useAnimation, useViewportScroll } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 const DividerAnimation = ({ direction, circleColor, circleShadow }: any) => {
+	const leftValue = useBreakpointValue({
+		md: "-6%",
+		xl: "-2%",
+	});
+
 	const { ref, inView } = useInView({ threshold: 0.5 });
 	const { scrollY } = useViewportScroll();
 	const controls = useAnimation();
@@ -47,7 +52,7 @@ const DividerAnimation = ({ direction, circleColor, circleShadow }: any) => {
 					width: "100%",
 					height: "100%",
 					backgroundColor: inView ? "black" : "gray",
-					originX: direction === "rightToLeft" ? "0%" : "100%",
+					originX: direction === "rightToLeft" ? "-2%" : "100%",
 				}}
 				transition={{ duration: 0.9 }}
 			/>
@@ -57,7 +62,7 @@ const DividerAnimation = ({ direction, circleColor, circleShadow }: any) => {
 					position='absolute'
 					top='50%'
 					right={direction === "rightToLeft" ? "auto" : "0%"}
-					left={direction === "leftToRight" ? "-2%" : "100%"}
+					left={direction === "leftToRight" ? leftValue : "100%"}
 					transform='translate(50%, -50%)'
 					borderRadius='50%'
 					w='20px'
