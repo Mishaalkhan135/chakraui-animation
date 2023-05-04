@@ -72,6 +72,7 @@ const VerticalAnimation = ({ direction, height, showEndCircleOn }: any) => {
 		>
 			{hasScrolled && (
 				<motion.div
+					initial={{ scaleY: 0 }}
 					animate={controls}
 					style={{
 						position: "absolute",

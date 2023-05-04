@@ -5,6 +5,7 @@ import {
 	Stack,
 	UnorderedList,
 	ListItem,
+	Flex,
 } from "@chakra-ui/react";
 import VerticalAnimation from "./VerticalDivider";
 
@@ -12,10 +13,18 @@ const LargeScreen = () => {
 	return (
 		<Stack display={{ base: "flex", md: "none" }}>
 			<HStack>
-				<Box w={"2px"} bg={"gray.300"}>
+				<Flex
+					position='absolute'
+					width='50px'
+					height='300px'
+					justifyContent='center'
+					alignItems='center'
+					flexDirection='column'
+					bg={"gray.100"}
+				>
 					<VerticalAnimation direction='up' height='260px' />
-				</Box>
-				<Box w={"100%"} h={"260px"} pl={6}>
+				</Flex>
+				<Box w={"100%"} h={"260px"} pl={16}>
 					<Heading fontSize={{ base: "3xl" }}>Q1 2023</Heading>
 					<UnorderedList>
 						<ListItem
@@ -52,10 +61,18 @@ const LargeScreen = () => {
 				</Box>
 			</HStack>
 			<HStack>
-				<Box w={"calc(16 -2px)"} bg={"gray.300"}>
-					<VerticalAnimation direction='up' height='300px' />
-				</Box>
-				<Box w={"100%"} h={"300px"} pl={6}>
+				<Flex
+					position='absolute'
+					width='50px'
+					height='300px'
+					justifyContent='center'
+					alignItems='center'
+					flexDirection='column'
+					bg={"gray.100"}
+				>
+					<VerticalAnimation direction='up' height='310px' />
+				</Flex>
+				<Box w={"100%"} h={"300px"} pl={16}>
 					<Heading fontSize={{ base: "3xl" }}>Q2 2023</Heading>
 					<UnorderedList>
 						<ListItem
@@ -110,10 +127,18 @@ const LargeScreen = () => {
 				</Box>
 			</HStack>
 			<HStack>
-				<Box w={"calc(16 -2px)"} bg={"gray.300"}>
+				<Flex
+					position='absolute'
+					width='50px'
+					height='300px'
+					justifyContent='center'
+					alignItems='center'
+					flexDirection='column'
+					bg={"gray.100"}
+				>
 					<VerticalAnimation direction='up' height='260px' />
-				</Box>
-				<Box w={"100%"} h={"260px"} pl={6}>
+				</Flex>
+				<Box w={"100%"} h={"260px"} pl={16}>
 					<Heading fontSize={{ base: "3xl" }}>Q3 2023</Heading>
 					<UnorderedList>
 						<ListItem
@@ -150,11 +175,19 @@ const LargeScreen = () => {
 				</Box>
 			</HStack>
 			<HStack>
-				<Box w={"calc(16 -2px)"} bg={"gray.300"}>
+				<Flex
+					position='absolute'
+					width='50px'
+					height='300px'
+					justifyContent='center'
+					alignItems='center'
+					flexDirection='column'
+					bg={"gray.100"}
+				>
 					<VerticalAnimation direction='up' height='260px' />
-				</Box>
+				</Flex>
 
-				<Box w={"100%"} h={"260px"} pl={6}>
+				<Box w={"100%"} h={"260px"} pl={16}>
 					<Heading fontSize={{ base: "3xl" }}>Q4 2023</Heading>
 					<UnorderedList>
 						<ListItem
@@ -185,14 +218,22 @@ const LargeScreen = () => {
 				</Box>
 			</HStack>
 			<HStack>
-				<Box w={"calc(16 -2px)"} bg={"gray.300"}>
+				<Flex
+					position='absolute'
+					width='50px'
+					height='300px'
+					justifyContent='center'
+					alignItems='center'
+					flexDirection='column'
+					bg={"gray.100"}
+				>
 					<VerticalAnimation
 						direction='up'
-						height='200px'
+						height='260px'
 						showEndCircleOn={true}
 					/>
-				</Box>
-				<Box w={"100%"} h={"200px"} pl={6}>
+				</Flex>
+				<Box w={"100%"} h={"260px"} pl={16}>
 					<Heading fontSize={{ base: "3xl" }}>Q1 2024</Heading>
 					<UnorderedList>
 						<ListItem

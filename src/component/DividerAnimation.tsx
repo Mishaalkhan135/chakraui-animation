@@ -23,7 +23,9 @@ const DividerAnimation = ({ direction, circleColor, circleShadow }: any) => {
 
 				controls.start({
 					scaleX: inView && !isScrollingUp ? 1 : 0,
-					scaleY: inView && !isScrollingUp ? 1 : 0.5,
+					scaleY: inView && !isScrollingUp ? 1 : 0,
+					backgroundColor:
+						inView && !isScrollingUp ? "#000" : "#f7fafc",
 				});
 
 				setLastY(currentY);
@@ -39,6 +41,7 @@ const DividerAnimation = ({ direction, circleColor, circleShadow }: any) => {
 	return (
 		<Box ref={ref} position='relative' h='2px' mb={6}>
 			<motion.div
+				initial={{ scaleX: 0, scaleY: 0, backgroundColor: "lightgray" }}
 				animate={controls}
 				onUpdate={(latest) => {
 					if (latest.scaleX === 1) {
@@ -51,10 +54,9 @@ const DividerAnimation = ({ direction, circleColor, circleShadow }: any) => {
 					position: "absolute",
 					width: "100%",
 					height: "100%",
-					backgroundColor: inView ? "black" : "gray",
 					originX: direction === "rightToLeft" ? "-2%" : "100%",
 				}}
-				transition={{ duration: 0.9 }}
+				transition={{ duration: 0.6 }}
 			/>
 
 			{showCircle && (
@@ -67,8 +69,9 @@ const DividerAnimation = ({ direction, circleColor, circleShadow }: any) => {
 					borderRadius='50%'
 					w='20px'
 					h='20px'
-					backgroundColor={circleColor || "blue"} // Outer circle color
+					backgroundColor={circleColor || "blue"}
 					boxShadow={circleShadow || "0 0 20px 5px black"}
+					ml={-2}
 				>
 					<Box
 						position='absolute'

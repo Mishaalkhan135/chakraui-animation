@@ -2,7 +2,6 @@ import {
 	Box,
 	HStack,
 	Heading,
-	Container,
 	Stack,
 	UnorderedList,
 	ListItem,
